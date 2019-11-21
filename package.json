@@ -1,0 +1,119 @@
+{
+  "name": "@belsrc/vue-app-template",
+  "version": "0.1.0",
+  "description": "A template for Vue apps",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -E GIT_PARAMS",
+    "pre-commit": "lint-staged"
+  },
+  "scripts": {
+    "lint": "npx eslint -c .eslintrc.js --fix --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
+    "prettier": "npx prettier --config .prettierrc.js --write \"**/*.{js,jsx,ts,tsx,md,html}\"",
+    "clean": "npm-run-all prettier lint",
+    "test": "cross-env NODE_ENV=test jest src/ --verbose --passWithNoTests",
+    "test:changed": "cross-env NODE_ENV=test jest src/ -o --passWithNoTests",
+    "coverage": "cross-env NODE_ENV=test jest src/ --verbose --coverage --passWithNoTests",
+    "build": "npm-run-all remove:dist build:prod",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --colors --hide-modules --display-error-details",
+    "build:dev": "cross-env PORT=8001 webpack-dev-server --progress --colors --hide-modules --display-error-details",
+    "remove:dist": "npx rimraf dist/",
+    "start": "npm-run-all remove:dist build:dev",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/style-mock.js",
+      "^@core(.*)$": "<rootDir>/src/core$1",
+      "^@components(.*)$": "<rootDir>/src/components$1",
+      "^@data(.*)$": "<rootDir>/src/core/data$1",
+      "^@functions(.*)$": "<rootDir>/src/core/functions$1",
+      "^@store(.*)$": "<rootDir>/src/core/store$1"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist"
+    ],
+    "testEnvironment": "jsdom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belsrc/<project-name>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/belsrc/<project-name>/issues"
+  },
+  "homepage": "https://github.com/belsrc/<project-name>#readme",
+  "author": "bryan@bryanckizer.com",
+  "license": "MIT",
+  "keywords": [],
+  "devDependencies": {
+    "@babel/cli": "7.6.4",
+    "@babel/core": "7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.6.2",
+    "@babel/plugin-syntax-jsx": "7.2.0",
+    "@babel/plugin-transform-async-to-generator": "7.5.0",
+    "@babel/plugin-transform-modules-umd": "7.2.0",
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "7.6.3",
+    "@babel/runtime": "7.6.3",
+    "@belsrc/vue-test-functional-wrapper": "1.0.1",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@vue/babel-preset-jsx": "1.1.1",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "10.0.3",
+    "babel-loader": "8.0.6",
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "babel-plugin-css-modules-transform": "1.6.2",
+    "babel-plugin-module-resolver": "3.2.0",
+    "babel-plugin-transform-vue-jsx": "4.0.1",
+    "conventional-changelog-cli": "2.0.25",
+    "core-js": "3.3.2",
+    "cross-env": "6.0.3",
+    "css-loader": "3.2.0",
+    "cssnano": "4.1.10",
+    "element-ui": "2.12.0",
+    "es6-promise-promise": "1.0.0",
+    "eslint": "6.5.1",
+    "eslint-config-belsrc": "1.1.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-loader": "3.0.2",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.2",
+    "mini-css-extract-plugin": "0.8.0",
+    "node-sass": "4.12.0",
+    "npm-run-all": "4.1.5",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.7.0",
+    "prettier": "1.18.2",
+    "regenerator-runtime": "0.13.3",
+    "rimraf": "3.0.0",
+    "sass-loader": "8.0.0",
+    "script-ext-html-webpack-plugin": "2.1.4",
+    "style-loader": "1.0.0",
+    "terser-webpack-plugin": "2.1.3",
+    "vue": "2.6.10",
+    "vue-loader": "15.7.1",
+    "vue-router": "3.1.3",
+    "vue-template-compiler": "2.6.10",
+    "vuex": "3.1.1",
+    "vuex-router-sync": "5.0.0",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.9",
+    "webpack-dev-server": "3.8.2",
+    "webpack-filter-warnings-plugin": "1.2.1",
+    "webpack-merge": "4.2.2",
+    "worker-loader": "2.0.0",
+    "yorkie": "2.0.0"
+  },
+  "dependencies": {}
+}
