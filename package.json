@@ -17,8 +17,10 @@
     "lint": "npx eslint -c .eslintrc.js --fix --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
     "prettier": "npx prettier --config .prettierrc.js --write \"**/*.{js,jsx,ts,tsx,md,html}\"",
     "clean": "npm-run-all prettier lint",
-    "test": "cross-env NODE_ENV=test jest src/ --verbose --passWithNoTests",
+    "test": "npm-run-all test:types test:all",
+    "test:all": "cross-env NODE_ENV=test jest src/ --verbose --passWithNoTests",
     "test:changed": "cross-env NODE_ENV=test jest src/ -o --passWithNoTests",
+    "test:types": "npx tsc",
     "coverage": "cross-env NODE_ENV=test jest src/ --verbose --coverage --passWithNoTests",
     "build": "npm-run-all remove:dist build:prod",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors --hide-modules --display-error-details",
@@ -40,7 +42,17 @@
       "/node_modules/",
       "/dist"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   },
   "repository": {
     "type": "git",
@@ -115,5 +127,7 @@
     "worker-loader": "2.0.0",
     "yorkie": "2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/preset-typescript": "7.7.2"
+  }
 }
