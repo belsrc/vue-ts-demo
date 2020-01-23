@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, no-undef, fp-jxl/no-nil */
 type nil = null | undefined;
 
 type Nilable<T> = T | nil;

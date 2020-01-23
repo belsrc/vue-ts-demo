@@ -1,4 +1,4 @@
-/* eslint-disable fp-jxl/no-unused-expression, fp-jxl/no-mutation */
+/* eslint-disable import/no-unresolved, fp-jxl/no-unused-expression, fp-jxl/no-mutation */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -7,8 +7,8 @@ import { sync } from 'vuex-router-sync';
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
 import App from 'core';
-import router from 'core/router';
 import store from 'core/store';
+import router from 'core/router';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
