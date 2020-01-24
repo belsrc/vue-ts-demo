@@ -4,7 +4,6 @@ import Vuex, { StoreOptions } from 'vuex';
 import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
-
 import user from './modules/user';
 
 // eslint-disable-next-line fp-jxl/no-unused-expression

@@ -1,9 +1,11 @@
+/* eslint-disable fp-jxl/no-unused-expression */
 import Router from 'vue-router';
 import Vue from 'vue';
 import { DEFAULT } from './route-names';
 
 const appName = 'Template';
-const pageTitle = (path?: string|string[]) => [ ...Array.isArray(path) ? path : [path], appName ].join(' | ');
+const pageTitle = (path?: string | string[]) =>
+  [ ...Array.isArray(path) ? path : [path], appName ].join(' | ');
 
 const Home = () => import('components/pages/home');
 
@@ -30,8 +32,9 @@ const router = new Router({
 
 // Set the document title
 router.beforeEach((to, from, next) => {
+  /* eslint-disable-next-line fp-jxl/no-mutation */
   document.title = to.meta.title(to);
-  next();
+  return next();
 });
 
 export default router;

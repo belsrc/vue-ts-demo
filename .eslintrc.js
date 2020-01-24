@@ -1,6 +1,19 @@
 module.exports = {
   extends: ['eslint-config-belsrc'],
 
+  parserOptions: {
+    ecmaFeatures: {
+      legacyDecorators: true,
+    },
+  },
+
+  globals: {
+    RootState: 'readonly',
+    UserState: 'readonly',
+    User: 'readonly',
+    TodoItem: 'readonly',
+  },
+
   settings: {
     'import/resolver': {
       alias: {
@@ -11,12 +24,28 @@ module.exports = {
           ['functions', './src/core/functions/'],
           ['store', './src/core/store/'],
         ],
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },
     },
   },
 
-  rules: {
-    'fp-jxl/no-this': 0,
-  },
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'fp-jxl/no-this': 0,
+        'fp-jxl/no-class': 0,
+        'fp-jxl/no-nil': 0,
+        'fp-jxl/no-unused-expression': 0,
+        'import/no-anonymous-default-export': 0,
+        'new-cap': 0,
+        'import/extensions': [
+          2,
+          {
+            sass: 'always',
+          },
+        ],
+      },
+    },
+  ],
 };

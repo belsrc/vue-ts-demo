@@ -1,4 +1,4 @@
-/* eslint-disable import/no-unresolved, fp-jxl/no-unused-expression, fp-jxl/no-mutation */
+/* eslint-disable fp-jxl/no-unused-expression, fp-jxl/no-mutation */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 

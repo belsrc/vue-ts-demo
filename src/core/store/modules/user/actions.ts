@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved, no-undef */
-import { ActionTree, ActionContext } from 'vuex';
+import { ActionTree } from 'vuex';
 import axios from 'axios';
 import { GET_USERS, SET_USERS } from './store-types';
 
