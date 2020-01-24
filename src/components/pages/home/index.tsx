@@ -1,18 +1,18 @@
 import './styles.scss';
 
 import { Route } from 'vue-router';
-import { Vue, Component } from 'vue-property-decorator'
-import { mapState, mapGetters } from 'vuex';
+import { Vue, Component } from 'vue-property-decorator';
+import { State, Getter } from 'vuex-class';
+import TodoListItem from 'components/blocks/todo-list-item';
 import { GET_TODOS, GET_USERS, TODO_COUNT } from 'store/store-types';
 
 /* eslint-disable import/no-anonymous-default-export */
-@Component({
-  computed: {
-    ...mapState({ todos: 'todoItems' }),
-    ...mapGetters({ count: TODO_COUNT }),
-  }
-})
+@Component
 export default class HomePage extends Vue {
+  @State('todoItems') todos: TodoItem[];
+  @State(state => state.user.users) users: User[];
+  @Getter(TODO_COUNT) count: number;
+
   async created() {
     return await this.loadPageData();
   }
@@ -35,16 +35,16 @@ export default class HomePage extends Vue {
     }
   }
 
-  async test() {
-    await this.loadPageData();
+  getUser(item: TodoItem) {
+    return this.users.find(x => x.id === item.userId);
   }
 
   render() {
     return (
       <main class='home'>
-        <h1>Todo List</h1>
+        <h1>Todo List ({ this.count })</h1>
         <ul>
-
+          { this.todos.map(x => <TodoListItem todo={ x } user={ this.getUser(x) } />) }
         </ul>
       </main>
     );

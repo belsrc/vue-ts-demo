@@ -9,8 +9,6 @@ const Home = () => import('components/pages/home');
 
 Vue.use(Router);
 
-// https://github.com/vuejs/vue-router/blob/dev/types/router.d.ts
-
 const router = new Router({
   mode: 'history',
   routes: [

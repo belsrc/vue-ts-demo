@@ -5,17 +5,17 @@ import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
 
+import user from './modules/user';
+
 // eslint-disable-next-line fp-jxl/no-unused-expression
 Vue.use(Vuex);
-
-// https://github.com/vuejs/vuex/blob/dev/types/index.d.ts
 
 const store: StoreOptions<RootState> = {
   state: { todoItems: []},
   actions,
   mutations,
   getters,
-  modules: {},
+  modules: { user },
   strict: process.env.NODE_ENV !== 'production',
 };
 

@@ -15,21 +15,23 @@
   },
   "scripts": {
     "lint": "npx eslint -c .eslintrc.js --fix --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
-    "lint-watch": "npx esw -c .eslintrc.js --fix --color --watch --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
+    "lint:watch": "npx esw -c .eslintrc.js --fix --color --watch --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
+    "lint:ci": "npx eslint -c .eslintrc.js --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx,vue}\"",
     "prettier": "npx prettier --config .prettierrc.js --write \"**/*.{js,jsx,ts,tsx,md,html}\"",
     "clean": "npm-run-all prettier lint",
     "test": "npm-run-all test:types test:all",
     "test:all": "cross-env NODE_ENV=test jest src/ --verbose --passWithNoTests",
     "test:changed": "cross-env NODE_ENV=test jest src/ -o --passWithNoTests",
     "test:types": "npx tsc",
-    "types-watch": "npx tsc --watch",
+    "types:watch": "npx tsc --watch",
     "coverage": "cross-env NODE_ENV=test jest src/ --verbose --coverage --passWithNoTests",
     "build": "npm-run-all remove:dist build:prod",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors --hide-modules --display-error-details",
     "build:dev": "cross-env PORT=8001 webpack-dev-server --progress --colors --hide-modules --display-error-details",
     "remove:dist": "npx rimraf dist/",
     "dev": "npm-run-all remove:dist build:dev",
-    "start": "run-p lint-watch types-watch",
+    "start": "run-p lint:watch types:watch",
+    "dryrun": "npm-run-all lint:ci test:all",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "jest": {
@@ -71,6 +73,8 @@
   "devDependencies": {
     "@babel/cli": "7.6.4",
     "@babel/core": "7.6.4",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-decorators": "7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/plugin-syntax-jsx": "7.2.0",
     "@babel/plugin-transform-async-to-generator": "7.5.0",
@@ -134,6 +138,7 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "7.7.2",
-    "axios": "0.19.2"
+    "axios": "0.19.2",
+    "vuex-class": "0.3.2"
   }
 }
