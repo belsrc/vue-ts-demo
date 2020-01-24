@@ -9,8 +9,9 @@ export interface ActionTree<S, R> {
 }
 */
 const actions: ActionTree<RootState, RootState> = {
-  async [GET_TODOS]({ commit }: ActionContext<RootState, RootState>): Promise<void> {
-    const res = await axios.get<Array<todoItem>>('https://jsonplaceholder.typicode.com/todos');
+  // async [GET_TODOS]({ commit }: ActionContext<RootState, RootState>): Promise<void> {
+  async [GET_TODOS]({ commit }) {
+    const res = await axios.get<Array<TodoItem>>('https://jsonplaceholder.typicode.com/todos');
 
     return commit(SET_TODOS, res);
   },

@@ -9,7 +9,7 @@ export interface ActionTree<S, R> {
 }
 */
 const actions: ActionTree<UserState, RootState> = {
-  async [GET_USERS]({ commit }: ActionContext<UserState, RootState>): Promise<void> {
+  async [GET_USERS]({ commit }) {
     const res = await axios.get<Array<TodoItem>>('https://jsonplaceholder.typicode.com/users');
 
     return commit(SET_USERS, res);
