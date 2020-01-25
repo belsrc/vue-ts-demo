@@ -6,9 +6,9 @@ import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
-import App from 'core';
-import store from 'core/store';
-import router from 'core/router';
+import App from './core';
+import store from './core/store';
+import router from './core/router';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -16,7 +16,6 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 if(IS_PRODUCTION) {
   Vue.config.devtools = false;
   Vue.config.productionTip = false;
-  Vue.config.debug = false;
   Vue.config.silent = true;
 }
 

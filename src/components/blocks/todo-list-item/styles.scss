@@ -2,7 +2,9 @@
 
 // Mobile / Baseline
 .todo-item {
-  display: flex;
+  header {
+    display: flex;
+  }
 }
 
 // Tablets

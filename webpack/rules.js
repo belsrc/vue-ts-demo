@@ -6,7 +6,7 @@ const { ENTRY_PATH } = require('./constants');
 module.exports = [
   {
     enforce: 'pre',
-    test: /\.(jsx?|vue)$/,
+    test: /\.([jt]sx?|vue)$/,
     exclude: /node_modules/,
     include: [ENTRY_PATH],
     loader: 'eslint-loader?parser=babel-eslint',
@@ -14,6 +14,18 @@ module.exports = [
       fix: true,
       emitError: false,
     },
+  },
+
+  // ts/tsx loader
+  {
+    test: /\.tsx?$/,
+    exclude: /node_modules/,
+    use: [
+      'babel-loader', {
+        loader: 'ts-loader',
+        options: { transpileOnly: true, compilerOptions: { noEmit: false }},
+      },
+    ],
   },
 
   // js/jsx loader

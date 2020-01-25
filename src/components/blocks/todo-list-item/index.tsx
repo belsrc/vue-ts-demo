@@ -26,8 +26,10 @@ export default class TodoListItem extends Vue {
   render() {
     return (
       <li class='todo-item'>
-        <h5>{ this.todo.title }</h5>
-        <input type='checkbox' v-model='isDone' />
+        <header>
+          <input type='checkbox' v-model={ this.isDone } />
+          <h5>{ this.todo.title }</h5>
+        </header>
         <UserDisplay username={ this.user.username } email={ this.user.email } />
       </li>
     );

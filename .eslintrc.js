@@ -20,9 +20,9 @@ module.exports = {
         map: [
           ['core', './src/core'],
           ['components', './src/components'],
-          ['data', './src/core/data/'],
-          ['functions', './src/core/functions/'],
-          ['store', './src/core/store/'],
+          ['data', './src/core/data'],
+          ['functions', './src/core/functions'],
+          ['store', './src/core/store'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },

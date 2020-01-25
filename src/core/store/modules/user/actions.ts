@@ -12,7 +12,7 @@ const actions: ActionTree<UserState, RootState> = {
   async [GET_USERS]({ commit }) {
     const res = await axios.get<Array<TodoItem>>('https://jsonplaceholder.typicode.com/users');
 
-    return commit(SET_USERS, res);
+    return commit(SET_USERS, res.data);
   },
 };
 

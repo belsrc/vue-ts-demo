@@ -62,6 +62,7 @@ typings/
 
 # output
 dist
+dev
 
 # circle-ci
 .circleci/*debug*

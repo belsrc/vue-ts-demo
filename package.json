@@ -1,5 +1,5 @@
 {
-  "name": "@belsrc/vue-app-template",
+  "name": "@belsrc/vue-ts-demo",
   "version": "0.1.0",
   "description": "A template for Vue apps",
   "main": "dist/index.js",
@@ -24,6 +24,7 @@
     "test:changed": "cross-env NODE_ENV=test jest src/ -o --passWithNoTests",
     "test:types": "npx tsc",
     "types:watch": "npx tsc --watch",
+    "types:test-compile": "npx tsc --noEmit false --outDir dev",
     "coverage": "cross-env NODE_ENV=test jest src/ --verbose --coverage --passWithNoTests",
     "build": "npm-run-all remove:dist build:prod",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors --hide-modules --display-error-details",
@@ -62,12 +63,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/belsrc/<project-name>.git"
+    "url": "git+https://github.com/belsrc/vue-ts-demo.git"
   },
   "bugs": {
-    "url": "https://github.com/belsrc/<project-name>/issues"
+    "url": "https://github.com/belsrc/vue-ts-demo/issues"
   },
-  "homepage": "https://github.com/belsrc/<project-name>#readme",
+  "homepage": "https://github.com/belsrc/vue-ts-demo#readme",
   "author": "bryan@bryanckizer.com",
   "license": "MIT",
   "keywords": [],
@@ -108,6 +109,7 @@
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-loader": "3.0.3",
     "eslint-watch": "6.0.1",
+    "fork-ts-checker-webpack-plugin": "4.0.2",
     "html-webpack-plugin": "3.2.0",
     "jest": "25.1.0",
     "lint-staged": "10.0.2",
@@ -143,6 +145,7 @@
   "dependencies": {
     "axios": "0.19.2",
     "babel-jest": "25.1.0",
+    "ts-loader": "6.2.1",
     "vuex-class": "0.3.2"
   }
 }

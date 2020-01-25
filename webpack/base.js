@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { ENTRY_PATH, OUTPUT_PATH, IS_PRODUCTION, ENV } = require('./constants');
 const rules = require('./rules');
 
@@ -17,7 +18,7 @@ const config = {
   context: path.resolve(__dirname, '..'),
 
   entry: {
-    app: path.join(ENTRY_PATH, '/main.js'),
+    app: path.join(ENTRY_PATH, '/main.ts'),
     'element-custom-theme': path.resolve(__dirname, '../src/core/styles/el-ui/index.scss'),
   },
 
@@ -33,18 +34,20 @@ const config = {
       '.webpack.js',
       '.web.js',
       '.js',
-      '.json',
       '.jsx',
+      '.json',
+      '.ts',
+      '.tsx',
       '.vue',
     ],
 
     alias: {
       sass: path.resolve(__dirname, '../src/core/styles/sass/main.scss'),
-      core: path.resolve(__dirname, '../src/core'),
-      components: path.resolve(__dirname, '../src/components'),
-      data: path.resolve(__dirname, '../src/core/data'),
-      functions: path.resolve(__dirname, '../src/core/functions'),
-      store: path.resolve(__dirname, '../src/core/store'),
+      core: path.resolve(__dirname, '../src/core/'),
+      components: path.resolve(__dirname, '../src/components/'),
+      data: path.resolve(__dirname, '../src/core/data/'),
+      functions: path.resolve(__dirname, '../src/core/functions/'),
+      store: path.resolve(__dirname, '../src/core/stor/e'),
     },
   },
 
@@ -69,6 +72,8 @@ const config = {
   },
 
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+
     new VueLoaderPlugin(),
 
     new MiniCssExtractPlugin({

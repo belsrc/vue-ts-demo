@@ -2,8 +2,8 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "module": "esnext",
-    "target": "esnext",
     "moduleResolution": "node",
+    "target": "esnext",
     "jsx": "preserve",
     "allowJs": true,
     "experimentalDecorators": true,

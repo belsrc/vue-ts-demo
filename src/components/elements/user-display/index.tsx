@@ -13,7 +13,7 @@ export default Vue.extend<Properties>({
   render(h, { props }) {
     return (
       <div class='user-display'>
-        { props.username } <span>{ props.email }</span>
+        { props.username } <span>&lt;{ props.email }&gt;</span>
       </div>
     );
   },
