@@ -6,6 +6,8 @@ on:
   # `synchronize` is when any additional pushes are made to the PR
   pull_request:
     types: [opened, synchronize]
+    branches-ignore:
+      - '.dependabot/'
 
   # trigger on branch push
   # only trigger on pushes to the `master` and `develop` branches (this also means PR merges)
