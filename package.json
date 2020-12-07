@@ -99,7 +99,7 @@
     "babel-plugin-transform-vue-jsx": "4.0.1",
     "conventional-changelog-cli": "2.0.31",
     "core-js": "3.6.4",
-    "cross-env": "6.0.3",
+    "cross-env": "7.0.3",
     "css-loader": "3.4.2",
     "cssnano": "4.1.10",
     "element-ui": "2.12.0",
