@@ -102,7 +102,7 @@
     "cross-env": "6.0.3",
     "css-loader": "3.4.2",
     "cssnano": "4.1.10",
-    "element-ui": "2.12.0",
+    "element-ui": "2.15.2",
     "es6-promise-promise": "1.0.0",
     "eslint": "6.8.0",
     "eslint-config-belsrc": "1.1.2",
